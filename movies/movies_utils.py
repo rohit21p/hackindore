@@ -4,7 +4,6 @@ import pandas as pd
 from rake_nltk import Rake
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
-# from books.models import Book
 from tvshows.models import Show
 from surprise import Reader, Dataset, SVD, evaluate
 import os
@@ -166,31 +165,14 @@ def rate_movie(username,movie_id,rating):
 
 def get_similar_content(movie_id):
     items=similar_items(movie_id)
-    # book_ids=[]
     tvshow_ids=[]
     for i in items:
         if i[0]=='t':
             if(len(tvshow_ids)!=5):
                 tvshow_ids.append(i)
-        # elif i[0]=='b':
-        #     if(len(book_ids)!=5):
-        #         book_ids.append(i)
-        # if(len(book_ids)==5 and len(tvshow_ids)==5):
         if(len(tvshow_ids)==5):
             break
-    # similar_books=[]
     similar_tvshows=[]
-
-    # for i in book_ids:
-    #     qSet=Book.objects.filter(book_id=i)[0]
-    #     ans = {}
-    #     ans['book_title'] = qSet.book_title
-    #     ans['book_id'] = qSet.book_id
-    #     ans['book_plot'] = qSet.book_plot
-    #     ans['book_genre'] = qSet.book_genre
-    #     ans['book_link'] = qSet.book_link
-    #     ans['book_rating'] = qSet.book_rating
-    #     similar_books.append(ans)
 
     for i in tvshow_ids:
         qSet = Show.objects.filter(show_id=i)[0]
@@ -202,8 +184,6 @@ def get_similar_content(movie_id):
         ans['show_link'] = qSet.show_link
         ans['show_rating'] = qSet.show_rating
         similar_tvshows.append(ans)
-
-    # return similar_books,similar_tvshows
     return similar_tvshows
 
 '''

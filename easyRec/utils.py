@@ -1,21 +1,15 @@
 import pandas as pd
 from movies import movies_utils
-from books import books_utils
 from tvshows  import shows_utils
 from rake_nltk import Rake
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 def similar_items(item_id):
-    # book = pd.read_csv(books_utils.data_path)
     movie = pd.read_csv(movies_utils.data_path)
     tvshow = pd.read_csv(shows_utils.data_path)
 
-    # data cleaning
-    # book['item_data'] = book['book_title'] + ' ' + book['book_author'] + ' ' + book['book_plot']
-    # book['item_id'] = book['book_id']
-    # book = book.drop(['book_id', 'book_title', 'book_genre', 'book_author', 'book_plot', 'book_rating', 'book_link'],
-    #                  axis=1)
+
     movie['item_data'] = movie['movie_title'] + ' ' + movie['movie_plot']
     movie['item_id'] = movie['movie_id']
     movie = movie.drop(
