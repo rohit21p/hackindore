@@ -308,45 +308,45 @@ a[data-tooltip][data-placement="top"]::after {
 </ul>
 </div>
       </div>
-        <div class="container" style="height: 300px;width: 1000px;margin-top: 20px">
-          <div style="padding:20px;">
-            <p style="font-weight: bold;font-size: 28px;font-family:Sans-Serif">
-                Similar Books to this item
-            </p>
-            <ul>
-            {% for p in similar_books %}
-                        <li style="margin-left: 20px" class="inline-block">
-                            <a  href="{% url 'books:detail' %}?title={{ p.book_title }}">
-                                <img src="{{ p.book_link }}" height="195px" width="130px" alt="" />
-                                <p style="width: 128px">{{ p.book_title}}</p>
-                                </a>
-                        </li>
-                <a href="{% url 'books:detail' %}?title={{ p.book_title }}"></a>
-            {% endfor %}
-
-</ul>
-</div>
-      </div>
-          <div class="container" style="height: 300px;width: 1000px;margin-top: 20px">
-          <div style="padding:20px;">
-            <p style="font-weight: bold;font-size: 28px;font-family:Sans-Serif">
-                Similar TV Shows to this item
-            </p>
-            <ul>
-            {% for p in similar_tvshows %}
-                        <li style="margin-left: 20px" class="inline-block">
-                            <a  href="{% url 'tvshows:detail' %}?title={{ p.show_title }}">
-                                <img src="{{ p.show_link }}" height="195px" width="130px" alt="" />
-                                <p style="width: 128px">{{ p.show_title}}</p>
-                                </a>
-                        </li>
-                <a href="{% url 'tvshows:detail' %}?title={{ p.show_title }}"></a>
-            {% endfor %}
-
-</ul>
-</div>
-      </div>
-  </div>
+{#        <div class="container" style="height: 300px;width: 1000px;margin-top: 20px">#}
+{#          <div style="padding:20px;">#}
+{#            <p style="font-weight: bold;font-size: 28px;font-family:Sans-Serif">#}
+{#                Similar Books to this item#}
+{#            </p>#}
+{#            <ul>#}
+{#            {% for p in similar_books %}#}
+{#                        <li style="margin-left: 20px" class="inline-block">#}
+{#                            <a  href="{% url 'books:detail' %}?title={{ p.book_title }}">#}
+{#                                <img src="{{ p.book_link }}" height="195px" width="130px" alt="" />#}
+{#                                <p style="width: 128px">{{ p.book_title}}</p>#}
+{#                                </a>#}
+{#                        </li>#}
+{#                <a href="{% url 'books:detail' %}?title={{ p.book_title }}"></a>#}
+{#            {% endfor %}#}
+{##}
+{#</ul>#}
+{#</div>#}
+{#      </div>#}
+{#          <div class="container" style="height: 300px;width: 1000px;margin-top: 20px">#}
+{#          <div style="padding:20px;">#}
+{#            <p style="font-weight: bold;font-size: 28px;font-family:Sans-Serif">#}
+{#                Similar TV Shows to this item#}
+{#            </p>#}
+{#            <ul>#}
+{#            {% for p in similar_tvshows %}#}
+{#                        <li style="margin-left: 20px" class="inline-block">#}
+{#                            <a  href="{% url 'tvshows:detail' %}?title={{ p.show_title }}">#}
+{#                                <img src="{{ p.show_link }}" height="195px" width="130px" alt="" />#}
+{#                                <p style="width: 128px">{{ p.show_title}}</p>#}
+{#                                </a>#}
+{#                        </li>#}
+{#                <a href="{% url 'tvshows:detail' %}?title={{ p.show_title }}"></a>#}
+{#            {% endfor %}#}
+{##}
+{#</ul>#}
+{#</div>#}
+{#      </div>#}
+{#  </div>#}
 </body>
 </html>
 
