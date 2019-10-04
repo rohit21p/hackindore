@@ -46,11 +46,9 @@ def movie_detail(request):
             data['already_rated'] = True
             data['rating_value']=str(q.rating)
 
-    similar_tvshows=movies_utils.get_similar_content(movie_data['movie_id'])
 
     data['movie_data']=movie_data
     data['similar_movies']=similar_movies
-    data['similar_tvshows']=similar_tvshows
 
     #TODO render code
     return render(request,'movies/movie_details.html',data)

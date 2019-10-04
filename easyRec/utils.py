@@ -1,13 +1,13 @@
 import pandas as pd
 from movies import movies_utils
-from tvshows  import shows_utils
+# from tvshows  import shows_utils
 from rake_nltk import Rake
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 def similar_items(item_id):
     movie = pd.read_csv(movies_utils.data_path)
-    tvshow = pd.read_csv(shows_utils.data_path)
+    # tvshow = pd.read_csv(shows_utils.data_path)
 
 
     movie['item_data'] = movie['movie_title'] + ' ' + movie['movie_plot']
@@ -15,11 +15,11 @@ def similar_items(item_id):
     movie = movie.drop(
         ['movie_id', 'movie_title', 'movie_genre', 'actors', 'movie_plot', 'imdb_rating', 'movie_link', 'director'],
         axis=1)
-    tvshow['item_data'] = tvshow['show_name'] + ' ' + tvshow['show_plot']
-    tvshow['item_id'] = tvshow['show_id']
-    tvshow = tvshow.drop(['show_id', 'show_name', 'show_genre', 'show_plot', 'show_rating', 'show_link'], axis=1)
+    # tvshow['item_data'] = tvshow['show_name'] + ' ' + tvshow['show_plot']
+    # tvshow['item_id'] = tvshow['show_id']
+    # tvshow = tvshow.drop(['show_id', 'show_name', 'show_genre', 'show_plot', 'show_rating', 'show_link'], axis=1)
 
-    data = (movie).append(tvshow)
+    data = movie
 
     data['key_words'] = ""
 

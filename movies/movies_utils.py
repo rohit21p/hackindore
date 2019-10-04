@@ -4,7 +4,6 @@ import pandas as pd
 from rake_nltk import Rake
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
-from tvshows.models import Show
 from surprise import Reader, Dataset, SVD, evaluate
 import os
 from movies.models import *
@@ -163,28 +162,7 @@ def rate_movie(username,movie_id,rating):
             file.writelines(data)
             file.close()
 
-def get_similar_content(movie_id):
-    items=similar_items(movie_id)
-    tvshow_ids=[]
-    for i in items:
-        if i[0]=='t':
-            if(len(tvshow_ids)!=5):
-                tvshow_ids.append(i)
-        if(len(tvshow_ids)==5):
-            break
-    similar_tvshows=[]
 
-    for i in tvshow_ids:
-        qSet = Show.objects.filter(show_id=i)[0]
-        ans = {}
-        ans['show_title'] = qSet.show_title
-        ans['show_id'] = qSet.show_id
-        ans['show_plot'] = qSet.show_plot
-        ans['show_genre'] = qSet.show_genre
-        ans['show_link'] = qSet.show_link
-        ans['show_rating'] = qSet.show_rating
-        similar_tvshows.append(ans)
-    return similar_tvshows
 
 '''
 #tests->
