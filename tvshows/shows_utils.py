@@ -7,7 +7,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from surprise import Reader, Dataset, SVD, evaluate
 import os
 from easyRec import utils
-from books.models import Book
+# from books.models import Book
 from movies.models import Movie
 from tvshows.models import *
 
