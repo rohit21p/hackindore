@@ -394,7 +394,7 @@ a[data-tooltip][data-placement="top"]::after {
     function rateAjax(){
         var ratingValue = +"{{ rating_value }}";
         alert(ratingValue);
-        ratingValue = ratingValue + 1;
+        ratingValue = ratingValue + 3;
         alert(ratingValue);
             var url="{% url 'movies:rate' %}?movie_id={{movie_data.movie_id}}&rating="+ratingValue;
 			console.log(url)
