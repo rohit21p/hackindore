@@ -11,7 +11,7 @@
   box-sizing: border-box;
 }
 body {
-  background: #43423E;
+  overflow:hidden;
 }
 a {
   text-decoration: none;
@@ -271,10 +271,10 @@ a[data-tooltip][data-placement="top"]::after {
   <div class="fluid-container">
     <div class="title-bar fx" style="justify-content: space-between;padding:15px;">
         <div class="left">
-            <a href="/" class="btn red"><p class="bold" style="font-size:24px;color:white;">Movies</p></a>
+            <a href="/" class="btn red"><p class="bold" style="font-size:24px;">Movies</p></a>
         </div>
         <div class="profile-box name-logout">
-            <a href="{% url 'accounts:logout' %}" class="btn red" style="color:white;font-size:20px;">{{ user }} | Logout</a>
+            <a href="{% url 'accounts:logout' %}" class="btn red" style="font-size:20px;">{{ user }} | Logout</a>
         </div>
         <!-- left -->
     </div>
@@ -282,6 +282,8 @@ a[data-tooltip][data-placement="top"]::after {
     <div class="hero">
       <div class="details">
         <div class="title1">{{ movie_data.movie_title }}</div>
+
+                    <span class="tag" style="margin-right:0px;color:black;">{{ movie_data.movie_genre }}</span>
 {#            <fieldset class="rating">#}
 {#            <input onclick="rateAjax(this.value)" type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="5 stars"></label>#}
 {#            <input onclick="rateAjax(this.value)" type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half" title="4.5 stars"></label>#}
@@ -297,11 +299,9 @@ a[data-tooltip][data-placement="top"]::after {
       </div> <!-- end details -->
     </div> <!-- end hero -->
     <div class="description">
-            <div class="column1">
-                    <span class="tag" style="margin-right:0px;color:black;">{{ movie_data.movie_genre }}</span>
-      </div> <!-- end column1 -->
-      <div class="column2">
-        <div class="container" style="height: 300px;width: 1000px">
+             <!-- end column1 -->
+      <div class="column1" style="padding-left:200px;padding-top:0px;">
+        <div class="container" style="height: 300px;width: 1000px;margin-left:100px;">
           <div style="padding:20px;" class="fx">
             <p style="font-weight: bold;font-size: 28px;font-family:Sans-Serif;color:black;margin-bottom: 10px;align-self: center">
                 Similar Movies to this item
