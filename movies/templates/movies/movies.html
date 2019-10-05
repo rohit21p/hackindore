@@ -620,9 +620,11 @@
                         {% for p in popular_movies %}
                         <li>
                             <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">
-                                <img src="{{ p.movie_link }}" alt="" class="cover" />
-                                <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>
-                                <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>
+                                <div class="fx">
+                                    <img src="{{ p.movie_link }}" alt="" class="cover" />
+                                    <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>
+                                    <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>
+                                </div>
                             </a>
                         </li>
                         <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>
