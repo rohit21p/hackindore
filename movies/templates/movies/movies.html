@@ -534,323 +534,98 @@
 <body>
 
     <div class="window">
-
-{#            <aside class="sidebar">#}
-{#                <div class="top-bar">#}
-{#                    <p class="logo">easyRec</p>#}
-{#                </div>#}
-{##}
-{#                <menu class="menu">#}
-{#                    <p class="menu-name">Movies</p>#}
-{#                    <div class="separator"></div>#}
-{#                    <p class="menu-name">Popular</p>#}
-{#                    <ul>#}
-{#                        <li><a href="#popular">Popular Movies</a></li>#}
-{#                    </ul>#}
-{#                    <div class="separator"></div>#}
-{#                    <p class="menu-name">Top-Charts</p>#}
-{#                    <ul>#}
-{#                        <li><a href="#action">Action / Adventure</a></li>#}
-{#                        <li><a href="#horror">Horror</a></li>#}
-{#                        <li><a href="#scifi">Sci-Fi  / Fantasy</a></li>#}
-{#                        <li><a href="#comedy">Comedy</a></li>#}
-{#                        <li><a href="#romance">Romance</a></li>#}
-{#                        <li><a href="#animation">Animation</a></li>#}
-{#                    </ul>#}
-{#                    <div class="separator"></div>#}
-{#                    <p class="menu-name">Personalised</p>#}
-{#                    <ul>#}
-{#                        <li><a href="#personalized">Personalized for you</a></li>#}
-{#                    </ul>#}
-{#                    <div class="separator"></div>#}
-{#                </menu>#}
-{#            </aside>#}
-
-            <div class="main" role="main" style="margin-left:0px;">
-
-{#                <div class="top-bar">#}
-{##}
-{#                    <div class="profile-box">#}
-{#                        <a href="{% url 'accounts:logout' %}" class="btn red">{{ user }} | Logout</a>#}
-{#                    </div>#}
-{##}
-{#                    <ul class="top-menu">#}
-{#                        <li class="menu-icon trigger-sidebar-toggle">#}
-{#                            <div class="line"></div>#}
-{#                            <div class="line"></div>#}
-{#                            <div class="line"></div>#}
-{#                        </li>#}
-{#                        <li class="active"><a href="{% url 'movies:home' %}">Movies</a></li>#}
-{#                        <li><a href="{% url 'books:home' %}">Books</a></li>#}
-{#                        <li><a href="{% url 'tvshows:home' %}">TV Shows</a></li>#}
-{#                        <li><a href="#">Products</a></li>#}
-{#                        <li style="font-size:24px;">Hackindore</li>#}
-{#                    </ul>#}
-{##}
-{#                </div>#}
-                <!-- top bar -->
-
-{#                <div class="featured-movie">#}
-{#                    <img class="cover" src="https://screenanarchy.com/assets_c/2018/03/AIW%20Banner%202-thumb-860xauto-70496.jpg" alt="" class="cover" />#}
-{#                    <div class="bottom-bar">#}
-{#                        <div class="title-container">#}
-{#                            <b>Movies</b> to watch#}
-{#                        </div>#}
-{#                        <div class="profile-box">#}
-{#                            <a href="{% url 'accounts:logout' %}" class="btn red">{{ user }} | Logout</a>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                    <!-- bottom bar -->#}
-{#                </div>#}
-{#                <!-- featured -->#}
-
-                <div class="movie-list" id="popular">
-                    <div class="title-bar">
-                        <div class="left">
-                            <p class="bold">Movies</p>
-                        </div>
-                        <div class="profile-box name-logout">
-                            <a href="{% url 'accounts:logout' %}" class="btn red" style="color:black">{{ user }} | Logout</a>
-                        </div>
-                        <!-- left -->
+        <div class="main" role="main" style="margin-left:0px;">
+            <div class="movie-list" id="popular">
+                 <div class="title-bar">
+                     <div class="left">
+                         <p class="bold">Movies</p>
+                     </div>
+                     <div class="profile-box name-logout">
+                         <a href="{% url 'accounts:logout' %}" class="btn red" style="color:black">{{ user }} | Logout</a>
+                     </div>
+                 </div>
+                 <ul class="list">
+                    {% for p in popular_movies %}
+                    <li>
+                        <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">
+                            <div class="fx">
+                                <img src="{{ p.movie_link }}" alt="" class="cover" />
+                                <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>
+                                <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>
+                            </div>
+                        </a>
+                    </li>
+                    <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>
+                    {% endfor %}
+                    {% for p in action %}
+                    <li>
+                        <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">
+                            <img src="{{ p.movie_link }}" alt="" class="cover" />
+                            <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>
+                            <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>
+                        </a>
+                    </li>
+                    <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>
+                    {% endfor %}
+                    {% for p in horror %}
+                    <li>
+                        <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">
+                            <img src="{{ p.movie_link }}" alt="" class="cover" />
+                            <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>
+                            <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>
+                        </a>
+                    </li>
+                    <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>
+                    {% endfor %}
+                    {% for p in scifi %}
+                    <li>
+                        <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">
+                            <img src="{{ p.movie_link }}" alt="" class="cover" />
+                            <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>
+                            <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>
+                        </a>
+                    </li>
+                    <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>
+                    {% endfor %}
+                    {% for p in comedy %}
+                    <li>
+                        <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">
+                            <img src="{{ p.movie_link }}" alt="" class="cover" />
+                            <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>
+                            <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>
+                        </a>
+                    </li>
+                    <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>
+                    {% endfor %}
+                    {% for p in romance %}
+                    <li>
+                        <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">
+                            <img src="{{ p.movie_link }}" alt="" class="cover" />
+                            <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>
+                            <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>
+                        </a>
+                    </li>
+                    <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>
+                    {% endfor %}
+                    {% for p in animation %}
+                    <li>
+                        <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">
+                            <img src="{{ p.movie_link }}" alt="" class="cover" />
+                            <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>
+                            <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>
+                        </a>
+                    </li>
+                    <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>
+                    {% endfor %}
+                 </ul>
+                </ul>
+            </div>
+            <div class="movie-list" id="personalized">
+                <div class="title-bar">
+                    <div class="left">
+                        <p class="bold">Personalised Movies for you</p>
                     </div>
-                    <!-- title-bar -->
-
-                    <ul class="list">
-                        {% for p in popular_movies %}
-                        <li>
-                            <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">
-                                <div class="fx">
-                                    <img src="{{ p.movie_link }}" alt="" class="cover" />
-                                    <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>
-                                    <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>
-                                </div>
-                            </a>
-                        </li>
-                        <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>
-                        {% endfor %}
-                        {% for p in action %}
-                        <li>
-                            <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">
-                                <img src="{{ p.movie_link }}" alt="" class="cover" />
-                                <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>
-                                <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>
-                            </a>
-                        </li>
-                        <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>
-                        {% endfor %}
-                        {% for p in horror %}
-                        <li>
-                            <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">
-                                <img src="{{ p.movie_link }}" alt="" class="cover" />
-                                <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>
-                                <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>
-                            </a>
-                        </li>
-                        <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>
-                        {% endfor %}
-                        {% for p in scifi %}
-                        <li>
-                            <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">
-                                <img src="{{ p.movie_link }}" alt="" class="cover" />
-                                <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>
-                                <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>
-                            </a>
-                        </li>
-                        <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>
-                        {% endfor %}
-                        {% for p in comedy %}
-                        <li>
-                            <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">
-                                <img src="{{ p.movie_link }}" alt="" class="cover" />
-                                <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>
-                                <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>
-                            </a>
-                        </li>
-                        <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>
-                        {% endfor %}
-                        {% for p in romance %}
-                        <li>
-                            <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">
-                                <img src="{{ p.movie_link }}" alt="" class="cover" />
-                                <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>
-                                <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>
-                            </a>
-                        </li>
-                        <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>
-                        {% endfor %}
-                        {% for p in animation %}
-                        <li>
-                            <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">
-                                <img src="{{ p.movie_link }}" alt="" class="cover" />
-                                <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>
-                                <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>
-                            </a>
-                        </li>
-                        <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>
-                        {% endfor %}
-{#                        {% for p in personalized %}#}
-{#                        <li>#}
-{#                            <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">#}
-{#                                <img src="{{ p.movie_link }}" alt="" class="cover" />#}
-{#                                <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>#}
-{#                                <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>#}
-{#                            </a>#}
-{#                        </li>#}
-{#                        <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>#}
-{#                        {% endfor %}#}
-                    </ul>
-                    </ul>
                 </div>
-                <!-- Popular list -->
-
-{#                <div class="movie-list" id="action">#}
-{#                    <div class="title-bar">#}
-{#                        <div class="left">#}
-{#                            <p class="bold">Top Action Movies</p>#}
-{#                        </div>#}
-{#                        <!-- left -->#}
-{#                    </div>#}
-{#                    <!-- title-bar -->#}
-{##}
-{#                    <ul class="list">#}
-{#                        {% for p in action %}#}
-{#                        <li>#}
-{#                            <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">#}
-{#                                <img src="{{ p.movie_link }}" alt="" class="cover" />#}
-{#                                <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>#}
-{#                                <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>#}
-{#                            </a>#}
-{#                        </li>#}
-{#                        <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>#}
-{#                        {% endfor %}#}
-{#                    </ul>#}
-{#                </div>#}
-                <!-- Action list -->
-{#                <div class="movie-list" id="horror">#}
-{#                    <div class="title-bar">#}
-{#                        <div class="left">#}
-{#                            <p class="bold">Top Horror Movies</p>#}
-{#                        </div>#}
-{#                        <!-- left -->#}
-{#                    </div>#}
-{#                    <!-- title-bar -->#}
-{##}
-{#                    <ul class="list">#}
-{#                        {% for p in horror %}#}
-{#                        <li>#}
-{#                            <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">#}
-{#                                <img src="{{ p.movie_link }}" alt="" class="cover" />#}
-{#                                <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>#}
-{#                                <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>#}
-{#                            </a>#}
-{#                        </li>#}
-{#                        <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>#}
-{#                        {% endfor %}#}
-{#                    </ul>#}
-{#                </div>#}
-                <!-- Horror -->
-{#                <div class="movie-list" id="scifi">#}
-{#                    <div class="title-bar">#}
-{#                        <div class="left">#}
-{#                            <p class="bold">Top SciFi Movies</p>#}
-{#                        </div>#}
-{#                        <!-- left -->#}
-{#                    </div>#}
-{#                    <!-- title-bar -->#}
-{##}
-{#                    <ul class="list">#}
-{#                        {% for p in scifi %}#}
-{#                        <li>#}
-{#                            <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">#}
-{#                                <img src="{{ p.movie_link }}" alt="" class="cover" />#}
-{#                                <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>#}
-{#                                <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>#}
-{#                            </a>#}
-{#                        </li>#}
-{#                        <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>#}
-{#                        {% endfor %}#}
-{#                    </ul>#}
-{#                </div>#}
-                <!-- Science Fiction -->
-{#                <div class="movie-list" id="comedy">#}
-{#                    <div class="title-bar">#}
-{#                        <div class="left">#}
-{#                            <p class="bold">Top Comedy Movies</p>#}
-{#                        </div>#}
-{#                        <!-- left -->#}
-{#                    </div>#}
-{#                    <!-- title-bar -->#}
-{##}
-{#                    <ul class="list">#}
-{#                        {% for p in comedy %}#}
-{#                        <li>#}
-{#                            <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">#}
-{#                                <img src="{{ p.movie_link }}" alt="" class="cover" />#}
-{#                                <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>#}
-{#                                <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>#}
-{#                            </a>#}
-{#                        </li>#}
-{#                        <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>#}
-{#                        {% endfor %}#}
-{#                    </ul>#}
-{#                </div>#}
-                <!-- Comedy -->
-{#                <div class="movie-list" id="romance">#}
-{#                    <div class="title-bar">#}
-{#                        <div class="left">#}
-{#                            <p class="bold">Top Romance Movies</p>#}
-{#                        </div>#}
-{#                        <!-- left -->#}
-{#                    </div>#}
-{#                    <!-- title-bar -->#}
-{##}
-{#                    <ul class="list">#}
-{#                        {% for p in romance %}#}
-{#                        <li>#}
-{#                            <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">#}
-{#                                <img src="{{ p.movie_link }}" alt="" class="cover" />#}
-{#                                <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>#}
-{#                                <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>#}
-{#                            </a>#}
-{#                        </li>#}
-{#                        <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>#}
-{#                        {% endfor %}#}
-{#                    </ul>#}
-{#                </div>#}
-                <!-- Romance -->
-{#                <div class="movie-list" id="animation">#}
-{#                    <div class="title-bar">#}
-{#                        <div class="left">#}
-{#                            <p class="bold">Top Animation Movies</p>#}
-{#                        </div>#}
-{#                        <!-- left -->#}
-{#                    </div>#}
-{#                    <!-- title-bar -->#}
-{##}
-{#                    <ul class="list">#}
-{#                        {% for p in animation %}#}
-{#                        <li>#}
-{#                            <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">#}
-{#                                <img src="{{ p.movie_link }}" alt="" class="cover" />#}
-{#                                <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>#}
-{#                                <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>#}
-{#                            </a>#}
-{#                        </li>#}
-{#                        <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>#}
-{#                        {% endfor %}#}
-{#                    </ul>#}
-{#                </div>#}
-
-                <div class="movie-list" id="personalized">
-                    <div class="title-bar">
-                        <div class="left">
-                            <p class="bold">Personalised Movies for you</p>
-                        </div>
-                        <!-- left -->
-                    </div>
-                    <!-- title-bar -->
-
                     <ul class="list">
                         {% for p in personalized %}
                         <li>
@@ -863,17 +638,10 @@
                         <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>
                         {% endfor %}
                     </ul>
-                </div>
-                <!-- Personalised -->
-
             </div>
-            <!-- main -->
         </div>
-        <!-- window -->
+    </div>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="js/index.js"></script>
-
-
 </body>
-
 </html>
