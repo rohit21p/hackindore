@@ -40,12 +40,11 @@ def movie_detail(request):
     data['already_rated'] = False
     data['rating_value'] = 0
     qSet=Movie_Rating.objects.filter(username=str(request.user))
-
     for q in qSet:
+        print(q.rating," ",q.movie_id, " \n\n")
         if q.movie_id == movie_data["movie_id"]:
             data['already_rated'] = True
             data['rating_value']=str(q.rating)
-
 
     data['movie_data']=movie_data
     data['similar_movies']=similar_movies

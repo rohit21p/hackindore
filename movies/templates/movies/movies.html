@@ -522,7 +522,7 @@
         }
         .list {
             display:flex;
-            flex-flow: row wrap;
+            flex-flow: row;
             justify-content: space-around;
         }
     </style>
@@ -610,7 +610,7 @@
                             <p class="bold">Movies</p>
                         </div>
                         <div class="profile-box name-logout">
-                            <a href="{% url 'accounts:logout' %}" class="btn red">{{ user }} | Logout</a>
+                            <a href="{% url 'accounts:logout' %}" class="btn red" style="color:black">{{ user }} | Logout</a>
                         </div>
                         <!-- left -->
                     </div>
@@ -687,16 +687,16 @@
                         </li>
                         <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>
                         {% endfor %}
-                        {% for p in personalized %}
-                        <li>
-                            <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">
-                                <img src="{{ p.movie_link }}" alt="" class="cover" />
-                                <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>
-                                <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>
-                            </a>
-                        </li>
-                        <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>
-                        {% endfor %}
+{#                        {% for p in personalized %}#}
+{#                        <li>#}
+{#                            <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">#}
+{#                                <img src="{{ p.movie_link }}" alt="" class="cover" />#}
+{#                                <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>#}
+{#                                <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>#}
+{#                            </a>#}
+{#                        </li>#}
+{#                        <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>#}
+{#                        {% endfor %}#}
                     </ul>
                     </ul>
                 </div>
@@ -840,28 +840,28 @@
 {#                    </ul>#}
 {#                </div>#}
 
-{#                <div class="movie-list" id="personalized">#}
-{#                    <div class="title-bar">#}
-{#                        <div class="left">#}
-{#                            <p class="bold">Personalised Movies for you</p>#}
-{#                        </div>#}
-{#                        <!-- left -->#}
-{#                    </div>#}
-{#                    <!-- title-bar -->#}
-{##}
-{#                    <ul class="list">#}
-{#                        {% for p in personalized %}#}
-{#                        <li>#}
-{#                            <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">#}
-{#                                <img src="{{ p.movie_link }}" alt="" class="cover" />#}
-{#                                <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>#}
-{#                                <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>#}
-{#                            </a>#}
-{#                        </li>#}
-{#                        <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>#}
-{#                        {% endfor %}#}
-{#                    </ul>#}
-{#                </div>#}
+                <div class="movie-list" id="personalized">
+                    <div class="title-bar">
+                        <div class="left">
+                            <p class="bold">Personalised Movies for you</p>
+                        </div>
+                        <!-- left -->
+                    </div>
+                    <!-- title-bar -->
+
+                    <ul class="list">
+                        {% for p in personalized %}
+                        <li>
+                            <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}">
+                                <img src="{{ p.movie_link }}" alt="" class="cover" />
+                                <p style="white-space: pre-line;" class="title">{{ p.movie_title}}</p>
+                                <p style="white-space: pre-line;" class="genre">{{ p.movie_genre }}</p>
+                            </a>
+                        </li>
+                        <a href="{% url 'movies:detail' %}?title={{ p.movie_title }}"></a>
+                        {% endfor %}
+                    </ul>
+                </div>
                 <!-- Personalised -->
 
             </div>
@@ -870,6 +870,8 @@
         <!-- window -->
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="js/index.js"></script>
+
+
 </body>
 
 </html>
